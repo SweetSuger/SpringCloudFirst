@@ -1,0 +1,41 @@
+server:
+  port: 5002
+# 数据源 连接池：druid 阿里带前台监控
+spring:
+  application:
+    name: springconfig
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:mysql://localhost:3306/dps_basic_ts?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: root
+#    password: etoak
+#spring:
+#  application:
+#    name: springbootConfig
+#  profiles:
+#    active: subversion
+#  cloud:
+#    config:
+#      server:
+#        svn:
+#          uri: https://192.168.3.97/svn/SourceCode/SMPH/Beats/trunk/test/config
+#          #username: *****
+#          #password: *****
+#          default-label:
+
+#注册中心配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5000/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 30
+logging:
+  level:
+    org.springframework: debug
+  file: ./logs/haos-config.log
+  file.max-size: 100MB
