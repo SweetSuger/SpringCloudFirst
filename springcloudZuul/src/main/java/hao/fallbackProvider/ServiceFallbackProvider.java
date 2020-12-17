@@ -45,6 +45,7 @@ public class ServiceFallbackProvider implements FallbackProvider {
             @Override
             public void close() {
             }
+            
             @Override
             // 发生熔断式，返回的信息
             public InputStream getBody() throws IOException {
